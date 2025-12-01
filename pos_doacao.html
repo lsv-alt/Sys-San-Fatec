@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidadores Pós-Doação - DOE Lins</title>
+
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-unificado.css">
+
+    <!-- Fonte do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para aplicar config para grandes telas - 30/11 Dri -->
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile – checkbox hack) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+            <!-- Botão de login (abre modal via checkbox) -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================================================
+     CHECKBOXES DO MODAL (HACK PARA ABRIR/FECHAR VIA CSS)
+     - Ficam antes do .modal-login para o CSS funcionar
+     ========================================================= -->
+<input
+        type="checkbox"
+        id="login-modal"
+        class="modal-toggle"
+        aria-hidden="true">
+<input
+        type="checkbox"
+        id="recuperar-modal"
+        class="recuperar-toggle"
+        aria-hidden="true">
+
+<!-- =========================================================
+     MODAL DE LOGIN / RECUPERAR SENHA
+     ========================================================= -->
+<div
+        class="modal-login"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+
+        <!-- BOTÃO FECHAR -->
+        <label
+                for="login-modal"
+                class="fechar-modal"
+                aria-label="Fechar janela de login">
+            &times;
+        </label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input
+                        id="email-login"
+                        type="email"
+                        name="email-login"
+                        placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input
+                        id="senha-login"
+                        type="password"
+                        name="senha-login"
+                        placeholder="Digite sua senha">
+
+                <button class="btn-entrar" type="submit">Entrar</button>
+            </form>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input
+                        id="email-recuperar"
+                        type="email"
+                        name="email-recuperar"
+                        placeholder="email@exemplo.com">
+
+                <button class="btn-entrar" type="submit">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">
+                ← Voltar ao login
+            </label>
+        </section>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     CABEÇALHO ESPECÍFICO DA PÁGINA PÓS-DOAÇÃO
+     ========================================================= -->
+<!-- <header class="header-pos">
+    <h1>CUIDADOS PÓS-DOAÇÃO</h1>
+</header> -->
+
+<!-- =========================================================
+     BANNER / INTRODUÇÃO
+     ========================================================= -->
+<section
+        class="banner-pos"
+        aria-label="Introdução aos cuidados após doar sangue">
+    <h2>Depois de doar sangue, o cuidado continua</h2>
+    <p>Pequenas ações garantem sua recuperação e bem-estar.</p>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main class="conteudo-blog" id="conteudo-principal">
+
+    <article class="artigo-blog" aria-label="Orientações de cuidados pós-doação">
+
+        <!-- INTRODUÇÃO -->
+        <h2 class="titulo-artigo-blog">Após a Doação</h2>
+        <p>
+            Após doar sangue, é comum que o corpo precise de alguns cuidados especiais.
+            Essas orientações ajudam a evitar desconfortos e garantem uma recuperação tranquila.
+        </p>
+
+        <!-- =================================================
+             CARDS DE CUIDADOS
+             ================================================= -->
+        <section class="cards-cuidado" aria-label="Cuidados imediatos após doar sangue">
+
+            <div class="card-pos">
+                <h3>Hidrate-se bem</h3>
+                <p>Beba água, sucos e líquidos durante o dia.</p>
+            </div>
+
+            <div class="card-pos">
+                <h3>Evite esforço</h3>
+                <p>Não faça atividades físicas intensas nas próximas 24h.</p>
+            </div>
+
+            <div class="card-pos">
+                <h3>Não fume</h3>
+                <p>Evite fumar por pelo menos 2 horas após doar.</p>
+            </div>
+
+            <div class="card-pos">
+                <h3>Evite álcool</h3>
+                <p>Não consuma bebidas alcoólicas nas próximas 12h.</p>
+            </div>
+
+        </section>
+
+        <!-- =================================================
+             LISTA DE RECOMENDAÇÕES
+             ================================================= -->
+        <section aria-label="Lista de recomendações pós-doação">
+            <h2 class="titulo-artigo-blog">Recomendações Importantes</h2>
+
+            <ul class="lista-recomendacoes-pos">
+                <li>Mantenha o curativo por pelo menos 4 horas;</li>
+                <li>Se sentir tontura, sente-se e coloque a cabeça entre os joelhos;</li>
+                <li>Se o local do furo sangrar, pressione por 5 a 10 minutos;</li>
+                <li>Evite carregar peso com o braço da doação;</li>
+                <li>Faça refeições leves e nutritivas;</li>
+                <li>Dê preferência ao descanso durante o dia.</li>
+            </ul>
+        </section>
+
+        <!-- =================================================
+             BOX DE ALERTA
+             ================================================= -->
+        <section
+                class="box-alerta-pos"
+                aria-label="Alerta sobre sintomas após a doação">
+            <h3>Atenção!</h3>
+            <p>
+                Caso sinta sintomas como tontura intensa, sangramento prolongado,
+                dormência no braço ou mal-estar forte, procure imediatamente o posto de saúde.
+            </p>
+        </section>
+
+        <!-- =================================================
+             SEÇÃO FINAL
+             ================================================= -->
+        <section aria-label="Mensagem final de agradecimento e cuidado">
+            <h2 class="titulo-artigo-blog">O mais importante:</h2>
+            <p>
+                Se cuide! Sua doação já fez a diferença na vida de alguém.
+                Agora é hora de se recuperar com tranquilidade.
+            </p>
+
+            <a href="index.html" class="btn-voltar-blog">Voltar ao Início</a>
+        </section>
+
+    </article>
+
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

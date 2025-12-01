@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitos e Verdades - DOE Lins</title>
+
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-unificado.css">
+
+    <!-- Fonte do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para aplicar config para grandes telas - 29/11 Dri -->
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile – checkbox hack) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+            <!-- Botão de login (abre modal via checkbox) -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================================================
+     CHECKBOXES DO MODAL (HACK PARA ABRIR/FECHAR VIA CSS)
+     ========================================================= -->
+<input
+        type="checkbox"
+        id="login-modal"
+        class="modal-toggle"
+        aria-hidden="true">
+<input
+        type="checkbox"
+        id="recuperar-modal"
+        class="recuperar-toggle"
+        aria-hidden="true">
+
+<!-- =========================================================
+     MODAL DE LOGIN / RECUPERAR SENHA
+     ========================================================= -->
+<div
+        class="modal-login"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+
+        <!-- Botão fechar -->
+        <label
+                for="login-modal"
+                class="fechar-modal"
+                aria-label="Fechar janela de login">
+            &times;
+        </label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input
+                        id="email-login"
+                        type="email"
+                        name="email-login"
+                        placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input
+                        id="senha-login"
+                        type="password"
+                        name="senha-login"
+                        placeholder="Digite sua senha">
+
+                <button class="btn-entrar" type="submit">Entrar</button>
+            </form>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input
+                        id="email-recuperar"
+                        type="email"
+                        name="email-recuperar"
+                        placeholder="email@exemplo.com">
+
+                <button class="btn-entrar" type="submit">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">
+                ← Voltar ao login
+            </label>
+        </section>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     CABEÇALHO ESPECÍFICO DA PÁGINA
+     ========================================================= -->
+<!-- <header class="header-mitos">
+    <h1>MITOS E VERDADES</h1>
+</header> -->
+
+<!-- =========================================================
+     BANNER / INTRODUÇÃO
+     ========================================================= -->
+<section
+        class="banner-mitos"
+        aria-label="Introdução sobre mitos e verdades da doação de sangue">
+    <h2>Desvendando os principais mitos sobre doação</h2>
+    <p>Entenda o que é fato — e o que não passa de mito.</p>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main class="conteudo-blog-mitos" id="conteudo-principal">
+
+    <!-- Artigo principal de mitos e verdades -->
+    <article class="artigo-mitos">
+        <h2 class="titulo-artigo-mitos">O que é mito? O que é verdade?</h2>
+
+        <p>
+            Muitas pessoas deixam de doar por acreditarem em informações erradas.
+            Nesta página você encontra os principais mitos e verdades sobre a doação de sangue.
+        </p>
+
+        <div class="lista-mitos-container">
+
+            <!-- Card 1 -->
+            <section class="mito-card" aria-label="Mito sobre engrossar ou afinar o sangue">
+                <h3>“Doar sangue engrossa ou afina o sangue.”</h3>
+                <span class="tag veredito falso">MITO</span>
+                <p>
+                    A doação não altera a viscosidade do sangue.
+                    Após a coleta, o organismo recompõe naturalmente o volume doado.
+                </p>
+            </section>
+
+            <!-- Card 2 -->
+            <section class="mito-card" aria-label="Mito sobre dor ao doar sangue">
+                <h3>“Doar sangue dói.”</h3>
+                <span class="tag veredito falso">MITO</span>
+                <p>
+                    Você sente apenas a picada inicial da agulha.
+                    Depois disso, o processo é rápido e praticamente indolor.
+                </p>
+            </section>
+
+            <!-- Card 3 -->
+            <section class="mito-card" aria-label="Verdade sobre tatuagem e doação de sangue">
+                <h3>“Quem tem tatuagem não pode doar.”</h3>
+                <span class="tag veredito verdadeiro">VERDADE</span>
+                <p>
+                    Pessoas tatuadas podem doar normalmente, desde que tenham
+                    feito a tatuagem há mais de 12 meses.
+                </p>
+            </section>
+
+            <!-- Card 4 -->
+            <section class="mito-card" aria-label="Mito sobre doação de sangue viciar">
+                <h3>“Doar sangue vicia.”</h3>
+                <span class="tag veredito falso">MITO</span>
+                <p>
+                    A doação não causa dependência.
+                    O corpo se recupera naturalmente e não cria “necessidade” de doar.
+                </p>
+            </section>
+
+            <!-- Card 5 -->
+            <section class="mito-card" aria-label="Verdade sobre gestantes e doação de sangue">
+                <h3>“Gestantes não podem doar.”</h3>
+                <span class="tag veredito verdadeiro">VERDADE</span>
+                <p>
+                    Gravidez, amamentação recente e parto impedem temporariamente a doação,
+                    por segurança da mãe e do bebê.
+                </p>
+            </section>
+
+            <!-- Card 6 -->
+            <section class="mito-card" aria-label="Mito sobre risco de contrair doenças doando sangue">
+                <h3>“Doar sangue pode transmitir doenças.”</h3>
+                <span class="tag veredito falso">MITO</span>
+                <p>
+                    Todo o material usado é novo, lacrado e descartável.
+                    Não há risco de contaminação.
+                </p>
+            </section>
+
+        </div>
+
+        <a href="index.html" class="btn-voltar-mitos">Voltar ao Início</a>
+    </article>
+
+</main>
+<br><br><br><br><br>
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

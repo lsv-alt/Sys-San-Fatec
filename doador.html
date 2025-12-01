@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Doador - DOE Lins</title>
+
+    <!-- CSS GERAL DO SITE -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS ESPECÍFICO DA ÁREA DO DOADOR -->
+    <link rel="stylesheet" href="doador.css">
+
+    <!-- Fonte do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+</head>
+
+<body class="area-doador">
+
+<!-- =========================================================
+     CONTROLES DO MODAL (CHECKBOX HACK)
+     - Precisam vir antes de .modal-login por causa do CSS
+     ========================================================= -->
+<input type="checkbox" id="login-modal" class="modal-toggle" aria-hidden="true">
+<input type="checkbox" id="recuperar-modal" class="recuperar-toggle" aria-hidden="true">
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <!-- Botão de login abre o modal -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!-- ==================================================================
+CONTROLES DO MODAL (CHECKBOX HACK)
+- A ordem é importante para o CSS: precisam vir antes de .modal-login
+================================================================== -->
+<input type="checkbox" id="login-modal" class="modal-toggle" aria-hidden="true">
+<input type="checkbox" id="recuperar-modal" class="recuperar-toggle" aria-hidden="true">
+
+<!-- ==================================================================
+     MODAL DE LOGIN / RECUPERAÇÃO DE SENHA
+     ================================================================== -->
+<div class="modal-login" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+        <!-- BOTÃO FECHAR -->
+        <label for="login-modal" class="fechar-modal" aria-label="Fechar janela de login">&times;</label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input id="email-login" type="email" name="email-login" placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input id="senha-login" type="password" name="senha-login" placeholder="Digite sua senha">
+            </form>
+
+            <!-- Link estilizado como botão (evita <a> dentro de <button>) -->
+            <a href="doador.html" class="btn-entrar">Entrar</a>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input id="email-recuperar" type="email" name="email-recuperar" placeholder="email@exemplo.com">
+
+                <button type="submit" class="btn-entrar">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">← Voltar ao login</label>
+        </section>
+    </div>
+</div>
+
+<!-- =========================================================
+     BANNER / CABEÇALHO DA ÁREA DO DOADOR
+     ========================================================= -->
+<section class="banner-doador" aria-label="Resumo do doador">
+    <div class="banner-doador-conteudo">
+        <h1>Olá, @Usuário!</h1>
+        <p>
+            Obrigado por fazer parte da nossa rede de doadores. Aqui você acompanha seus agendamentos,
+            histórico de doações e orientações importantes.
+        </p>
+        <div class="badge-status" aria-label="Informação sobre próxima doação liberada">
+            <span class="pontinho" aria-hidden="true"></span>
+            <span>Próxima doação liberada a partir de 10/02/2026</span>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main id="conteudo-principal">
+
+    <!-- -----------------------------------------------------
+         DASHBOARD – CARDS PRINCIPAIS DO DOADOR
+         ----------------------------------------------------- -->
+    <section
+            class="dashboard-doador"
+            aria-label="Resumo principal de agendamentos e doações">
+        <div class="dashboard-cards">
+
+            <article class="card-doador destaque">
+                <h2>Próximo agendamento</h2>
+                <p class="data-hora">18/12/2025 às 09h30</p>
+                <p class="info-extra">Unidade: Posto Central</p>
+                <p class="info-extra">Situação: Confirmado</p>
+                <a href="agendar.html" class="link-acao">Alterar ou cancelar</a>
+            </article>
+
+            <article class="card-doador">
+                <h2>Sua última doação</h2>
+                <p class="data-hora">20/10/2025</p>
+                <p class="info-extra">Tipo de doação: Sangue total</p>
+                <p class="info-extra">Bolsa coletada com sucesso.</p>
+            </article>
+
+            <article class="card-doador">
+                <h2>Resumo de doações</h2>
+                <p class="numero-destaque">7 doações</p>
+                <p class="info-extra">Doações realizadas neste posto desde 2021.</p>
+                <a href="#historico" class="link-acao">Ver histórico completo</a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- -----------------------------------------------------
+         GRID SECUNDÁRIO: HISTÓRICO + ATALHOS / AVISOS
+         ----------------------------------------------------- -->
+    <section
+            class="doador-grid-secundario"
+            aria-label="Histórico de doações e atalhos do doador">
+
+        <!-- HISTÓRICO DE DOAÇÕES -->
+        <section class="historico-doador-wrapper" id="historico" aria-label="Histórico de doações">
+            <h2>Histórico de doações</h2>
+
+            <div class="tabela-scroll">
+                <table class="tabela-historico-doador" aria-label="Tabela com histórico de doações do doador">
+                    <thead>
+                    <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col">Tipo de doação</th>
+                        <th scope="col">Unidade</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>20/10/2025</td>
+                        <td>Sangue total</td>
+                        <td>Posto Central</td>
+                        <td>Concluída</td>
+                    </tr>
+                    <tr>
+                        <td>05/07/2025</td>
+                        <td>Sangue total</td>
+                        <td>Unidade Zona Norte</td>
+                        <td>Concluída</td>
+                    </tr>
+                    <tr>
+                        <td>12/03/2025</td>
+                        <td>Sangue total</td>
+                        <td>Posto Central</td>
+                        <td>Concluída</td>
+                    </tr>
+                    <tr>
+                        <td>25/11/2024</td>
+                        <td>Plasma</td>
+                        <td>Posto Central</td>
+                        <td>Concluída</td>
+                    </tr>
+                    <tr>
+                        <td>10/08/2024</td>
+                        <td>Sangue total</td>
+                        <td>Posto Central</td>
+                        <td>Concluída</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- LADO DIREITO: ATALHOS E AVISOS -->
+        <aside class="painel-lateral-doador" aria-label="Atalhos e avisos importantes">
+
+            <section class="atalhos-doador" aria-label="Atalhos rápidos">
+                <h2>Atalhos rápidos</h2>
+                <ul>
+                    <li><a href="agendar.html">Agendar nova doação</a></li>
+                    <li><a href="cadastro.html">Atualizar meus dados</a></li>
+                    <li><a href="informacoes.html">Rever orientações para doar</a></li>
+                </ul>
+            </section>
+
+            <section class="avisos-doador" aria-label="Avisos da equipe">
+                <h2>Avisos da equipe</h2>
+                <ul>
+                    <li>
+                        <strong>Exames liberados:</strong>
+                        seus exames da última doação estão disponíveis
+                        para consulta na recepção do posto.
+                    </li>
+                    <li>
+                        <strong>Contato atualizado:</strong>
+                        caso tenha trocado de telefone, atualize seus dados
+                        para receber lembretes de agendamento.
+                    </li>
+                    <li>
+                        <strong>Campanha de fim de ano:</strong>
+                        ajude a divulgar o mutirão de doação nas redes sociais.
+                    </li>
+                </ul>
+            </section>
+
+        </aside>
+
+    </section>
+
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+<footer class="rodape">
+    <div class="info-posto">
+        <strong>POSTO DE SAÚDE “X”</strong><br>
+        Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+        Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+        CNPJ: 44.531.788/0001-38
+    </div>
+
+    <div class="info-sistema">
+        <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+        <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOE Lins</title>
+
+    <!-- Fonte e estilos -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container-geral">  <!-- recriei o container para aplicar config para grandes telas - 28/11 Dri -->
+<!-- ==================================================================
+     HEADER / NAVEGAÇÃO PRINCIPAL
+     ================================================================== -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile – controlado por checkbox) -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <!-- Botão de login abre o modal via checkbox -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ==================================================================
+     CONTROLES DO MODAL (CHECKBOX HACK)
+     - A ordem é importante para o CSS: precisam vir antes de .modal-login
+     ================================================================== -->
+<input type="checkbox" id="login-modal" class="modal-toggle" aria-hidden="true">
+<input type="checkbox" id="recuperar-modal" class="recuperar-toggle" aria-hidden="true">
+
+<!-- ==================================================================
+     MODAL DE LOGIN / RECUPERAÇÃO DE SENHA
+     ================================================================== -->
+<div class="modal-login" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+        <!-- BOTÃO FECHAR -->
+        <label for="login-modal" class="fechar-modal" aria-label="Fechar janela de login">&times;</label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input id="email-login" type="email" name="email-login" placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input id="senha-login" type="password" name="senha-login" placeholder="Digite sua senha">
+            </form>
+
+            <!-- Link estilizado como botão (evita <a> dentro de <button>) -->
+            <a href="doador.html" class="btn-entrar">Entrar</a>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input id="email-recuperar" type="email" name="email-recuperar" placeholder="email@exemplo.com">
+
+                <button type="submit" class="btn-entrar">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">← Voltar ao login</label>
+        </section>
+    </div>
+</div>
+
+<!-- ==================================================================
+     CONTEÚDO PRINCIPAL
+     ================================================================== -->
+<main id="conteudo-principal">
+    <!-- ==============================================================
+         FAIXA SUPERIOR / SUB-MENU DE ESTOQUE
+         ============================================================== -->
+    <section class="sub-menu" aria-label="Painel rápido de estoque de sangue">
+        <div class="area-texto-estoque pag-inicial">
+            <h1>Quem precisa de você hoje?</h1>
+            <span>Confira o nosso banco e ajude a manter a vida pulsando</span>
+        </div>
+
+        <div class="area-icones-estoque-home">
+            <!-- Cada ícone representa um tipo sanguíneo -->
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo O positivo">
+                <p>O+</p>
+                <span>Estável</span>
+            </div>
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo O negativo">
+                <p>O-</p>
+                <span>Estável</span>
+            </div>
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo A positivo">
+                <p>A+</p>
+                <span>Estável</span>
+            </div>
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo A negativo">
+                <p>A-</p>
+                <span>Estável</span>
+            </div>
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo AB positivo">
+                <p>AB+</p>
+                <span>Estável</span>
+            </div>
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo AB negativo">
+                <p>AB-</p>
+                <span>Estável</span>
+            </div>
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo B positivo">
+                <p>B+</p>
+                <span>Estável</span>
+            </div>
+            <div class="icone-estoque">
+                <img src="imgs/blood-icon-stock-var1.png" alt="Bolsa de sangue para tipo B negativo">
+                <p>B-</p>
+                <span>Estável</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================================================
+         ATALHOS IMPORTANTES (CRITÉRIOS, PREPARAÇÃO, ETC.)
+         ============================================================== -->
+    <nav class="blocos-informativos" aria-label="Atalhos para informações sobre doação">
+        <a href="criterios.html" class="bloco">CRITÉRIOS PARA DOAR</a>
+        <a href="preparacao.html" class="bloco">PREPARAÇÃO PRÉ-DOAÇÃO</a>
+        <a href="pos_doacao.html" class="bloco">CUIDADOS PÓS-DOAÇÃO</a>
+        <a href="mitos_verdades.html" class="bloco">MITOS E VERDADES</a>
+        <a href="tire_duvidas.html" class="bloco">TIRE SUAS DÚVIDAS</a>
+    </nav>
+
+    <!-- ==============================================================
+         QUESTIONÁRIO SIMPLES – VERIFICAÇÃO DE APTIDÃO
+         ============================================================== -->
+    <section class="container-simple-form" aria-label="Questionário simples para ver se está apto a doar">
+        <article class="formulario-simples">
+            <form class="simple-form" action="#" method="post">
+                <h2>VEJA SE ESTÁ APTO A DOAR COM ESTE QUESTIONÁRIO SIMPLES</h2>
+                <hr>
+
+                <div class="campo">
+                    <label for="q1">Tem entre 16 e 69 anos?</label>
+                    <select id="q1" name="q1">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="q2">Pesa mais de 50kg?</label>
+                    <select id="q2" name="q2">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="q3">Está bem de saúde hoje?</label>
+                    <select id="q3" name="q3">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="q4">Fez tatuagem, piercing ou cirurgia nos últimos 12 meses?</label>
+                    <select id="q4" name="q4">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="q5">Está grávida, amamentando ou teve parto recentemente?</label>
+                    <select id="q5" name="q5">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="q6">Tomou vacina recentemente (menos de 30 dias)?</label>
+                    <select id="q6" name="q6">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <p class="aviso">
+                    Nenhuma informação é coletada nem armazenada neste site através deste formulário simples.
+                </p>
+
+                <button type="submit" class="botao-verificar">VERIFICAR</button>
+            </form>
+        </article>
+    </section>
+
+    <!-- ==============================================================
+         SEÇÃO DE NOTÍCIAS
+         ============================================================== -->
+    <section class="noticias-container" aria-label="Notícias sobre doação de sangue">
+        <h2 class="titulo-noticias">NOTÍCIAS</h2>
+        <hr class="linha-topo">
+
+        <div class="barra-busca">
+            <label for="busca-noticias" class="sr-only">Buscar por notícias</label>
+            <input id="busca-noticias" type="text" placeholder="Buscar por Notícias">
+            <span class="icone-busca" aria-hidden="true">🔍</span>
+        </div>
+
+        <div class="grid-noticias">
+            <!-- Cards de notícias (placeholders) -->
+            <article class="card">
+                <div class="imagem-fake" aria-hidden="true"></div>
+                <h3 class="titulo-card">Título de Notícia 01</h3>
+            </article>
+
+            <article class="card">
+                <div class="imagem-fake" aria-hidden="true"></div>
+                <h3 class="titulo-card">Título de Notícia 01</h3>
+            </article>
+
+            <article class="card">
+                <div class="imagem-fake" aria-hidden="true"></div>
+                <h3 class="titulo-card">Título de Notícia 01</h3>
+            </article>
+
+            <article class="card">
+                <div class="imagem-fake" aria-hidden="true"></div>
+                <h3 class="titulo-card">Título de Notícia 01</h3>
+            </article>
+
+            <article class="card">
+                <div class="imagem-fake" aria-hidden="true"></div>
+                <h3 class="titulo-card">Título de Notícia 01</h3>
+            </article>
+
+            <article class="card">
+                <div class="imagem-fake" aria-hidden="true"></div>
+                <h3 class="titulo-card">Título de Notícia 01</h3>
+            </article>
+        </div>
+    </section>
+
+    <!-- ==============================================================
+         SEÇÃO GRÁFICOS / ESTATÍSTICAS
+         ============================================================== -->
+    <section class="grafico-wrapper" aria-label="Gráficos sobre doações">
+        <h2 class="titulo-secao">GRÁFICO SOBRE AS DOAÇÕES</h2>
+        <hr class="linha-divisoria">
+
+        <!-- BLOCO 1 – DOADORES -->
+        <article class="bloco-grafico" id="bloco-grafico1">
+            <header class="cabecalho-bloco">ESCOLHA SUA VISUALIZAÇÃO - DOADORES</header>
+
+            <div class="abas" role="tablist" aria-label="Visualização de doadores">
+                <div class="aba ativa" role="tab" aria-selected="true">Cadastrados</div>
+                <div class="aba" role="tab" aria-selected="false">Ativos</div>
+            </div>
+
+            <div class="grafico-barras" aria-hidden="true">
+                <div class="barra h-75"></div>
+                <div class="barra h-45"></div>
+                <div class="barra h-65"></div>
+                <div class="barra h-20"></div>
+                <div class="barra h-40"></div>
+                <div class="barra h-55"></div>
+                <div class="barra h-70"></div>
+                <div class="barra h-80"></div>
+                <div class="barra h-60"></div>
+                <div class="barra h-72"></div>
+            </div>
+
+            <div class="meses" aria-hidden="true">
+                <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span>
+                <span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span>
+                <span>Set</span><span>Out</span><span>Nov</span><span>Dez</span>
+            </div>
+        </article>
+
+        <!-- BLOCO 2 – DOAÇÕES -->
+        <article class="bloco-grafico" id="bloco-grafico2">
+            <header class="cabecalho-bloco">ESCOLHA SUA VISUALIZAÇÃO - DOAÇÕES</header>
+
+            <div class="abas" role="tablist" aria-label="Visualização de doações">
+                <div class="aba ativa" role="tab" aria-selected="true">Doações</div>
+                <div class="aba" role="tab" aria-selected="false">Metas</div>
+            </div>
+
+            <div class="grafico-barras" aria-hidden="true">
+                <div class="barra h-75"></div>
+                <div class="barra h-45"></div>
+                <div class="barra h-65"></div>
+                <div class="barra h-20"></div>
+                <div class="barra h-40"></div>
+                <div class="barra h-55"></div>
+                <div class="barra h-70"></div>
+                <div class="barra h-80"></div>
+                <div class="barra h-60"></div>
+                <div class="barra h-72"></div>
+            </div>
+
+            <div class="meses" aria-hidden="true">
+                <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span>
+                <span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span>
+                <span>Set</span><span>Out</span><span>Nov</span><span>Dez</span>
+            </div>
+        </article>
+
+        <!-- SELEÇÃO DE ANO -->
+        <p class="anos-label">Escolha o ano:</p>
+        <div class="anos" aria-label="Seleção de ano para o gráfico">
+            <span class="ano ativo">2025</span>
+            <span class="ano">2024</span>
+            <span class="ano">2023</span>
+            <span class="ano">2022</span>
+            <span class="ano">2021</span>
+            <span class="ano">2020</span>
+            <span class="ano">2019</span>
+            <span class="ano">2018</span>
+            <span class="ano">2017</span>
+            <span class="ano">2016</span>
+            <span class="ano">2015</span>
+            <span class="ano">2014</span>
+            <span class="ano">2013</span>
+            <span class="ano">2012</span>
+            <span class="ano">2011</span>
+            <span class="ano">2010</span>
+        </div>
+    </section>
+</main>
+
+<!-- ==================================================================
+     RODAPÉ
+     ================================================================== -->
+<footer class="rodape">
+    <div class="info-posto">
+        <strong>POSTO DE SAÚDE “X”</strong><br>
+        Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+        Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+        CNPJ: 44.531.788/0001-38
+    </div>
+
+    <div class="info-sistema">
+        <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+        <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+    </div>
+</footer>
+</div>
+</body>
+</html>

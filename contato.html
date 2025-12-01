@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato - Sistema de Doação de Sangue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS principal do sistema -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte usada no projeto (igual às outras páginas) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para aplicar config para grandes telas - 28/11 Dri -->
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile) -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <!-- Botão de login (abre modal via checkbox) -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================================================
+     CONTROLES DO MODAL DE LOGIN (CHECKBOX HACK)
+     - Precisam ficar antes da .modal-login por causa do CSS
+     ========================================================= -->
+<input type="checkbox" id="login-modal" class="modal-toggle" aria-hidden="true">
+<input type="checkbox" id="recuperar-modal" class="recuperar-toggle" aria-hidden="true">
+
+<!-- =========================================================
+     MODAL DE LOGIN / RECUPERAR SENHA
+     (mesma estrutura usada no index)
+     ========================================================= -->
+<div class="modal-login" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+
+        <!-- Botão fechar -->
+        <label for="login-modal" class="fechar-modal" aria-label="Fechar janela de login">&times;</label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input id="email-login" type="email" name="email-login" placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input id="senha-login" type="password" name="senha-login" placeholder="Digite sua senha">
+            </form>
+
+            <!-- Link estilizado como botão (evita <a> dentro de <button>) -->
+            <a href="doador.html" class="btn-entrar">Entrar</a>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input id="email-recuperar" type="email" name="email-recuperar" placeholder="email@exemplo.com">
+                <button type="submit" class="btn-entrar">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">← Voltar ao login</label>
+        </section>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     FAIXA SUPERIOR / TÍTULO DA PÁGINA
+     ========================================================= -->
+<section class="sub-menu" aria-label="Área de cabeçalho da página de contato">
+    <div class="area-texto-estoque pag-contato">
+        <h1>Fale Conosco</h1>
+        <span>Entre em contato com o Hemocentro Lins</span>
+    </div>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main id="conteudo-principal">
+
+    <!-- -----------------------------------------------------
+         BLOCO PRINCIPAL DE CONTATO
+         - Lado esquerdo: informações
+         - Lado direito: mapa + formulário
+         ----------------------------------------------------- -->
+    <section class="container-simple-form contato-wrapper" aria-label="Informações e formulário de contato">
+
+        <!-- LADO ESQUERDO: Informações de contato -->
+        <article class="formulario-simples contato-info">
+            <h2>Informações de Contato</h2>
+            <hr>
+
+            <p><strong>Hemocentro Lins - Unidade Central</strong></p>
+            <p>Rua 9de Julho, 745 - Centro</p>
+            <p>Lins - SP, 16400-110</p>
+
+            <br>
+
+            <p><strong>Telefone:</strong> (14) 4000-1234</p>
+            <p><strong>WhatsApp:</strong> (14) 9 9876-5432</p>
+            <p><strong>E-mail:</strong> contato@hemocentrolins.com.br</p>
+
+            <br>
+
+            <p><strong>Horário de atendimento:</strong></p>
+            <ul>
+                <li>Segunda a Sexta: 07h00 às 17h00</li>
+                <li>Sábado: 08h00 às 12h00</li>
+                <li>Domingos e feriados: plantões especiais</li>
+            </ul>
+
+            <br>
+
+            <p><strong>Agendamentos:</strong></p>
+            <p>Agende sua doação com antecedência para evitar filas e garantir um atendimento mais rápido.</p>
+        </article>
+
+        <!-- LADO DIREITO: mapa + formulário -->
+        <article class="formulario-simples contato-mapa">
+            <h2>Localização e Mensagem</h2>
+            <hr>
+
+            <p>Veja no mapa abaixo como chegar até o Hemocentro Lins. Você também pode enviar uma mensagem para nossa equipe pelo formulário.</p>
+
+            <div class="mapa-embed">
+                <!-- Iframe do Google Maps (substitua pela localização real, se necessário) -->
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4793.181415833965!2d-49.7502255!3d-21.698331299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94be15ecb135a5dd%3A0x66b807178c781125!2sFATEC%20Lins!5e1!3m2!1spt-BR!2sbr!4v1764348381683!5m2!1spt-BR!2sbr"
+                        width="100%"
+                        height="280"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Mapa de localização do Hemocentro Lins">
+                </iframe>
+            </div>
+
+            <br>
+
+            <!-- Formulário de contato -->
+            <form class="simple-form">
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(14) 9 9999-9999">
+                </div>
+
+                <div class="campo">
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto">
+                        <option value="">Selecione uma opção</option>
+                        <option value="duvidas">Dúvidas sobre doação</option>
+                        <option value="agendamento">Agendamento de doação</option>
+                        <option value="parceria">Parcerias e campanhas</option>
+                        <option value="reclamacao">Reclamações / Sugestões</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui"></textarea>
+                </div>
+
+                <p class="aviso">
+                    Respondemos normalmente em até 2 dias úteis.
+                </p>
+
+                <button type="submit" class="botao-verificar">
+                    Enviar mensagem
+                </button>
+            </form>
+        </article>
+
+    </section>
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações - DOE Lins</title>
+
+    <!-- Estilos principais do site -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-unificado.css">
+
+    <!-- Fonte do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet"> <!-- troquei o link da font pra conseguir pegar o weight de 500, estava ficando diferente - 29/11 Dri -->
+
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para aplicar config para grandes telas - 29/11 Dri -->
+
+<!-- =========================================================
+     CHECKBOXES DO MODAL (HACK PARA ABRIR/FECHAR VIA CSS)
+     ========================================================= -->
+<input
+        type="checkbox"
+        id="login-modal"
+        class="modal-toggle"
+        aria-hidden="true">
+<input
+        type="checkbox"
+        id="recuperar-modal"
+        class="recuperar-toggle"
+        aria-hidden="true">
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+            <!-- Botão de login abre o modal -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <!-- ==================================================================
+    CONTROLES DO MODAL (CHECKBOX HACK)
+    - A ordem é importante para o CSS: precisam vir antes de .modal-login
+    ================================================================== -->
+    <input type="checkbox" id="login-modal" class="modal-toggle" aria-hidden="true">
+    <input type="checkbox" id="recuperar-modal" class="recuperar-toggle" aria-hidden="true">
+
+    <!-- ==================================================================
+         MODAL DE LOGIN / RECUPERAÇÃO DE SENHA
+         ================================================================== -->
+    <div class="modal-login" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-login">
+        <div class="modal-content">
+            <!-- BOTÃO FECHAR -->
+            <label for="login-modal" class="fechar-modal" aria-label="Fechar janela de login">&times;</label>
+
+            <!-- ================= LOGIN NORMAL ================== -->
+            <section class="tela-login" aria-label="Área de login">
+                <h2 id="titulo-modal-login">Login</h2>
+
+                <form>
+                    <label for="tipo-login">Tipo de Acesso:</label>
+                    <select id="tipo-login" name="tipo-login" class="select-login">
+                        <option value="doador">🩸 Doador</option>
+                        <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                        <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                        <option value="admin">🔐 Administrador</option>
+                    </select>
+
+                    <label for="email-login">E-mail:</label>
+                    <input id="email-login" type="email" name="email-login" placeholder="Digite seu e-mail">
+
+                    <label for="senha-login">Senha:</label>
+                    <input id="senha-login" type="password" name="senha-login" placeholder="Digite sua senha">
+                </form>
+
+                <!-- Link estilizado como botão (evita <a> dentro de <button>) -->
+                <a href="doador.html" class="btn-entrar">Entrar</a>
+
+                <div class="acoes-extra">
+                    <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                    <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+                </div>
+            </section>
+
+            <!-- ================= RECUPERAR SENHA ================= -->
+            <section class="tela-recuperar" aria-label="Recuperar senha">
+                <h2>Recuperar Senha</h2>
+
+                <form>
+                    <label for="email-recuperar">Digite seu e-mail:</label>
+                    <input id="email-recuperar" type="email" name="email-recuperar" placeholder="email@exemplo.com">
+
+                    <button type="submit" class="btn-entrar">Enviar código</button>
+                </form>
+
+                <label for="recuperar-modal" class="voltar-login">← Voltar ao login</label>
+            </section>
+        </div>
+    </div>
+
+<!-- =========================================================
+     BANNER / INTRODUÇÃO
+     ========================================================= -->
+<section
+        class="banner-blog"
+        aria-label="Informações importantes para doadores">
+    <h2>Tudo o que você precisa saber antes de doar sangue</h2>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main id="conteudo-principal">
+
+    <!-- -----------------------------------------------------
+         BLOCO 1 – CARDS DE INFORMAÇÕES GERAIS
+         ----------------------------------------------------- -->
+    <section class="conteudo-blog" aria-label="Informações essenciais para doadores">
+        <article class="artigo">
+            <h2 class="titulo-artigo">Informações essenciais</h2>
+
+            <div class="cards-criterios">
+                <section class="card" aria-label="Quem pode doar sangue">
+                    <h3>Quem pode doar?</h3>
+                    <p>Idade entre 16 e 69 anos, bom estado de saúde e mais de 50 kg.</p>
+                </section>
+
+                <section class="card" aria-label="Documentos necessários para doar sangue">
+                    <h3>Documentos</h3>
+                    <p>Documento oficial com foto é obrigatório. Ex.: RG, CNH, passaporte.</p>
+                </section>
+
+                <section class="card" aria-label="Intervalos recomendados entre doações">
+                    <h3>Intervalos</h3>
+                    <p>Homens: a cada 60 dias. Mulheres: a cada 90 dias.</p>
+                </section>
+
+                <section class="card" aria-label="Duração média do processo de doação">
+                    <h3>Duração</h3>
+                    <p>Todo o processo leva entre 40 e 60 minutos.</p>
+                </section>
+            </div>
+        </article>
+    </section>
+
+    <!-- -----------------------------------------------------
+         BLOCO 2 – COMO FUNCIONA A DOAÇÃO
+         ----------------------------------------------------- -->
+    <section class="conteudo-blog" aria-label="Etapas do processo de doação de sangue">
+        <article class="artigo">
+            <h2 class="titulo-artigo">Como funciona a doação?</h2>
+
+            <p>A doação de sangue é um processo rápido e seguro. Veja as etapas:</p>
+
+            <div class="cards-preparacao">
+                <section class="card" aria-label="Etapa 1 - Cadastro">
+                    <h3>1. Cadastro</h3>
+                    <p>Você apresenta seu documento e responde perguntas simples de saúde.</p>
+                </section>
+
+                <section class="card" aria-label="Etapa 2 - Triagem">
+                    <h3>2. Triagem</h3>
+                    <p>Um profissional avalia sinais vitais e condições necessárias para doar.</p>
+                </section>
+
+                <section class="card" aria-label="Etapa 3 - Doação">
+                    <h3>3. Doação</h3>
+                    <p>O procedimento dura cerca de 10 minutos e é totalmente seguro.</p>
+                </section>
+
+                <section class="card" aria-label="Etapa 4 - Lanche">
+                    <h3>4. Lanche</h3>
+                    <p>Após doar, o doador recebe hidratação e orientação sobre cuidados.</p>
+                </section>
+            </div>
+        </article>
+    </section>
+
+    <!-- -----------------------------------------------------
+         BLOCO 3 – CUIDADOS PRÉ E PÓS DOAÇÃO
+         ----------------------------------------------------- -->
+    <section class="conteudo-blog" aria-label="Cuidados antes e depois da doação">
+        <article class="artigo">
+            <h2 class="titulo-artigo">Cuidados importantes</h2>
+
+            <div class="cards-criterios">
+
+                <div class="box-destaque" aria-label="Cuidados antes da doação">
+                    <h3>Antes da doação</h3>
+                        <ul>
+                            <li>Durma bem (pelo menos 6 horas).</li>
+                            <li>Evite jejum. Faça uma refeição leve.</li>
+                            <li>Evite alimentos gordurosos nas últimas 3 horas.</li>
+                            <li>Hidrate-se bem.</li>
+                        </ul>
+                </div>
+
+            <div class="box-destaque" aria-label="Cuidados depois da doação">
+                <h3>Depois da doação</h3>
+                <ul>
+                    <li>Evite esforços físicos por 12h.</li>
+                    <li>Beba bastante líquido.</li>
+                    <li>Não fume por 2 horas.</li>
+                    <li>Mantenha o curativo por pelo menos 4 horas.</li>
+                </ul>
+            </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- -----------------------------------------------------
+         BLOCO 4 – MITOS E VERDADES CURTOS
+         ----------------------------------------------------- -->
+    <section class="conteudo-blog" aria-label="Mitos e verdades sobre doação de sangue">
+        <article class="artigo">
+            <h2 class="titulo-artigo">Mitos e verdades sobre doação</h2>
+
+            <div class="lista-mitos-container">
+                <section class="mito-card" aria-label="Verdade sobre impacto na saúde ao doar">
+                    <!-- Classe corrigida: antes estava 'veredito.verdadeiro' -->
+                    <span class="veredito verdadeiro">Verdade</span>
+                    <h3>Doar sangue não afeta sua saúde.</h3>
+                    <p>O corpo repõe o volume doado em poucas horas.</p>
+                </section>
+
+                <section class="mito-card" aria-label="Mito sobre tatuagem e doação">
+                    <!-- Classe corrigida: antes estava 'veredito.falso' -->
+                    <span class="veredito falso">Mito</span>
+                    <h3>Quem tem tatuagem não pode doar.</h3>
+                    <p>Pode doar após 6 meses da realização da tatuagem.</p>
+                </section>
+
+                <section class="mito-card" aria-label="Mito sobre contrair doenças doando sangue">
+                    <span class="veredito falso">Mito</span>
+                    <h3>É possível contrair doenças doando sangue.</h3>
+                    <p>Todo material é estéril e descartável.</p>
+                </section>
+            </div>
+        </article>
+    </section>
+
+    <!-- -----------------------------------------------------
+         BLOCO 5 – PERGUNTAS FREQUENTES
+         ----------------------------------------------------- -->
+    <section class="conteudo-blog" aria-label="Perguntas frequentes sobre doação de sangue">
+        <article class="artigo">
+            <h2 class="titulo-artigo">Perguntas frequentes (FAQ)</h2>
+
+            <div class="faq-container">
+                <section class="faq-card" aria-label="Pergunta frequente: doar gripado">
+                    <h3>Posso doar gripado?</h3>
+                    <p>Não. Aguarde estar sem sintomas por pelo menos 7 dias.</p>
+                </section>
+
+                <section class="faq-card" aria-label="Pergunta frequente: medicamentos e doação">
+                    <h3>Posso doar usando medicamentos?</h3>
+                    <p>Depende do medicamento. Leve a receita ou embalagem para avaliação.</p>
+                </section>
+
+                <section class="faq-card" aria-label="Pergunta frequente: menores de idade">
+                    <h3>Menores de idade podem doar?</h3>
+                    <p>Sim, acima de 16 anos, mas precisam de autorização dos responsáveis.</p>
+                </section>
+
+                <section class="faq-card" aria-label="Pergunta frequente: quantidade de doações ao ano">
+                    <h3>Quantas vezes posso doar ao ano?</h3>
+                    <p>Homens até 4; mulheres até 3 vezes ao ano.</p>
+                </section>
+            </div>
+        </article>
+    </section>
+
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+/* ===========================================================
+   ÁREA DO DOADOR – LAYOUT, CORES E COMPONENTES
+   -----------------------------------------------------------
+   CSS exclusivo da área do doador. Mantém o visual atual,
+   só está mais organizado, padronizado e comentado.
+   =========================================================== */
+
+/* ===========================================================
+   ÁREA DO DOADOR – CSS PADRONIZADO (FLEXBOX & FONTES)
+   30/11 Dri
+   =========================================================== */
+
+/* ===========================================================
+   FUNDO / CONTEXTO GERAL
+   =========================================================== */
+
+body.area-doador {
+    background: #f4f6f9; /* tom mais claro para cara de "dashboard" */
+}
+
+/* ===========================================================
+   BANNER DO TOPO (SAUDAÇÃO / STATUS)
+   =========================================================== */
+
+.banner-doador {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 25px 0;
+}
+
+.banner-doador-conteudo {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: #ffffff;
+    padding: 22px 28px;
+    border-radius: 14px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.06);
+}
+
+.banner-doador-conteudo h1 {
+    font-size: 2.4rem; /* Aumentado de 1.6rem para 2.4rem para destacar o nome - 30/11 Dri */
+    margin-bottom: 6px;
+    color: #b32634; 
+}
+
+.banner-doador-conteudo p {
+    font-size: 1.6rem; /* Texto base aumentado para 1.6rem - 30/11 Dri */
+    color: #333;
+}
+
+/* Badge de status */
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: #e8f5e9;
+    color: #1b5e20;
+    border-radius: 30px;
+    font-size: 1.2rem; /* Aumentado para legibilidade - 30/11 Dri */
+    margin-top: 10px;
+}
+
+.badge-status .pontinho {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #2e7d32;
+}
+
+/* ===========================================================
+   DASHBOARD – CARDS PRINCIPAIS
+   =========================================================== */
+
+.dashboard-doador {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto 0;
+}
+
+/* CONVERSÃO DE GRID PARA FLEXBOX
+   Antes: grid-template-columns
+   Agora: display flex com wrap
+*/
+.dashboard-cards {
+    display: flex; /* Flexbox ativado - 30/11 Dri */
+    flex-wrap: wrap; /* Permite quebrar linha - 30/11 Dri */
+    gap: 20px;
+    justify-content: center; /* Centraliza cards se sobrar espaço - 30/11 Dri */
+}
+
+.card-doador {
+    flex: 1 1 300px; /* Base de 300px, estica e encolhe - 30/11 Dri */
+    background: #ffffff;
+    padding: 20px 22px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid #d46b74;
+}
+
+.card-doador h2 {
+    margin-bottom: 6px;
+    font-size: 1.8rem; /* Aumentado de 1.1rem para 1.8rem (destaque) - 30/11 Dri */
+    color: #b32634;
+}
+
+.card-doador .data-hora {
+    font-size: 1.6rem; /* Data importante maior - 30/11 Dri */
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-doador .info-extra {
+    color: #555;
+    font-size: 1.4rem; /* Texto auxiliar aumentado - 30/11 Dri */
+}
+
+.card-doador .numero-destaque {
+    font-size: 2.2rem; /* Número bem grande - 30/11 Dri */
+    font-weight: 800;
+    color: #b32634;
+}
+
+.card-doador .link-acao {
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 1.4rem; /* Link clicável maior - 30/11 Dri */
+    color: #b32634;
+    text-decoration: underline;
+}
+
+.card-doador.destaque {
+    border-left-color: #b32634;
+}
+
+/* ===========================================================
+   ÁREA SECUNDÁRIA (HISTÓRICO + LATERAL)
+   =========================================================== */
+
+/* CONVERSÃO DE GRID PARA FLEXBOX
+   Antes: grid com 2 colunas assimétricas
+   Agora: flexbox com flex-basis diferentes
+*/
+.doador-grid-secundario {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto 50px;
+    display: flex; /* Flexbox ativado - 30/11 Dri */
+    flex-wrap: wrap; /* Responsividade automática - 30/11 Dri */
+    gap: 22px;
+    align-items: flex-start; /* Alinha no topo */
+}
+
+/* ===========================================================
+   HISTÓRICO DE DOAÇÕES (TABELA)
+   =========================================================== */
+
+.historico-doador-wrapper {
+    flex: 2 1 600px; /* Ocupa 2 partes do espaço (aprox 66%), base de 600px - 30/11 Dri */
+    background: #fff;
+    padding: 20px 22px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.historico-doador-wrapper h2 {
+    font-size: 1.8rem; /* Título aumentado - 30/11 Dri */
+    margin-bottom: 12px;
+}
+
+.tabela-scroll {
+    overflow-x: auto;
+}
+
+.tabela-historico-doador {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.4rem; /* Aumentado de 0.92rem para 1.4rem para legibilidade - 30/11 Dri */
+}
+
+.tabela-historico-doador th {
+    background: #f1f3f5;
+    padding: 12px;
+    font-weight: bold;
+    color: #444;
+    text-align: left;
+}
+
+.tabela-historico-doador td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabela-historico-doador tr:hover td {
+    background: #f9f9f9;
+}
+
+/* ===========================================================
+   PAINEL LATERAL (ATALHOS + AVISOS)
+   =========================================================== */
+
+.painel-lateral-doador {
+    flex: 1 1 300px; /* Ocupa 1 parte do espaço (aprox 33%), base de 300px - 30/11 Dri */
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.atalhos-doador,
+.avisos-doador {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.atalhos-doador h2,
+.avisos-doador h2 {
+    font-size: 1.6rem; /* Títulos laterais aumentados - 30/11 Dri */
+    margin-bottom: 12px;
+}
+
+.atalhos-doador ul,
+.avisos-doador ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.atalhos-doador ul li {
+    margin-bottom: 10px;
+}
+
+.atalhos-doador a {
+    color: #b32634;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.4rem; /* Link lateral maior - 30/11 Dri */
+}
+
+.atalhos-doador a:hover {
+    text-decoration: underline;
+}
+
+.avisos-doador li {
+    margin-bottom: 10px;
+    border-left: 3px solid #b32634;
+    padding-left: 10px;
+    color: #444;
+    font-size: 1.3rem; /* Aviso aumentado para 1.3rem - 30/11 Dri */
+    line-height: 1.4;
+}
+
+/* ===========================================================
+   RESPONSIVIDADE (ADAPTAÇÃO MOBILE)
+   =========================================================== */
+
+/* Tablet e Mobile (≤ 900px) */
+@media (max-width: 768px) {
+    /* Não precisa de regra especial para o grid sumir, 
+       o flex-wrap já faz o trabalho de jogar a lateral para baixo! */
+       
+    .historico-doador-wrapper {
+        flex-basis: 100%; /* Ocupa largura total se faltar espaço */
+    }
+    
+    .painel-lateral-doador {
+        flex-basis: 100%; /* Ocupa largura total se faltar espaço */
+    }
+}
+
+/* Mobile Pequeno (≤ 600px) */
+@media (max-width: 576px) {
+    .banner-doador-conteudo {
+        padding: 16px;
+    }
+
+    .banner-doador-conteudo h1 {
+        font-size: 2.0rem; /* Ajuste leve para telas pequenas - 30/11 Dri */
+    }
+    
+    .card-doador h2 {
+        font-size: 1.6rem;
+    }
+
+    .historico-doador-wrapper{
+        padding: 10px;
+    }
+
+    .tabela-historico-doador{
+        font-size: 1rem;
+       
+    }
+}

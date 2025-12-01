@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Doador - DOE Lins</title>
+
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para aplicar config para grandes telas - 28/11 Dri -->
+
+<!-- CHECKBOXES DO MODAL (LOGIN) -->
+<input type="checkbox" id="login-modal" class="modal-toggle">
+<input type="checkbox" id="recuperar-modal" class="recuperar-toggle">
+
+<!-- HEADER -->
+<header class="header">
+
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- botão hamburguer -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+            <!-- Botão de login -->
+            <li><label for="login-modal" class="login-btn">Login</label></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- MODAL LOGIN -->
+<div class="modal-login">
+    <div class="modal-content">
+
+        <!-- FECHAR -->
+        <label for="login-modal" class="fechar-modal">&times;</label>
+
+        <!-- TELA DE LOGIN -->
+        <div class="tela-login">
+            <h2>Área do Doador</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input id="email-login" type="email" placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input id="senha-login" type="password" placeholder="Digite sua senha">
+
+                <button type="button" class="btn-entrar">Entrar</button>
+            </form>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Ainda não tenho cadastro</a>
+            </div>
+        </div>
+
+        <!-- TELA DE RECUPERAR -->
+        <div class="tela-recuperar">
+            <h2>Recuperar Senha</h2>
+            <form>
+                <label for="email-recuperar">Digite seu e-mail cadastrado:</label>
+                <input id="email-recuperar" type="email" placeholder="email@exemplo.com">
+                <button type="button" class="btn-entrar">Enviar link de recuperação</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">← Voltar ao login</label>
+        </div>
+
+    </div>
+</div>
+
+<!-- FAIXA SUPERIOR -->
+<section class="sub-menu">
+    <div class="area-texto-estoque pag-cadastro"> <!-- criei uma 2ª classe nova pra centralizar o texto - 29/11 Dri -->
+        <h1>Cadastro de Doador</h1>
+        <span>Crie seu acesso ao portal e facilite seus próximos agendamentos.</span>
+        <p class="ultima-atualizacao">
+            Os dados cadastrados são utilizados apenas para fins de atendimento e contato com o doador.
+        </p>
+    </div>
+</section>
+
+<main>
+
+    <!-- BLOCO 1 – TEXTO INTRODUÇÃO + VANTAGENS -->
+    <section class="cadastro-intro">
+
+        <div class="cadastro-texto">
+            <h2>Por que se cadastrar?</h2>
+            <p>
+                Com o cadastro no portal, você terá uma área exclusiva para acompanhar seu histórico de doações,
+                receber lembretes quando estiver apto a doar novamente e agilizar seu atendimento no posto.
+            </p>
+
+            <ul class="lista-beneficios-cadastro">
+                <li>✔ Cadastro único para todas as unidades do posto;</li>
+                <li>✔ Histórico de doações e exames associados;</li>
+                <li>✔ Comunicação rápida em campanhas emergenciais;</li>
+                <li>✔ Possibilidade de pré-agendar suas doações pela internet.</li>
+            </ul>
+        </div>
+
+        <div class="cadastro-card-info">
+            <h3>Já tem cadastro?</h3>
+            <p>
+                Se você já possui cadastro no sistema, basta fazer login para acessar sua área de doador.
+            </p>
+            <label for="login-modal" class="botao-secundario">
+                Fazer login
+            </label>
+            <p class="cadastro-aviso-pequeno">
+                Caso não lembre seus dados, utilize a opção
+                <strong>“Esqueci minha senha”</strong> na tela de login.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- BLOCO 2 – FORMULÁRIO DE CADASTRO -->
+    <section class="container-simple-form cadastro-form-wrapper">
+
+        <div class="formulario-simples">
+            <h2>Dados para cadastro</h2>
+            <hr>
+
+            <form class="simple-form">
+
+                <!-- Dados pessoais -->
+                <div class="grupo-campos">
+                    <h3>Dados pessoais</h3>
+
+                    <div class="campo">
+                        <label for="nome-completo">Nome completo</label>
+                        <input type="text" id="nome-completo" name="nome-completo" placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="campo-duplo">
+                        <div class="campo">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                        </div>
+                        <div class="campo">
+                            <label for="nascimento">Data de nascimento</label>
+                            <input type="date" id="nascimento" name="nascimento">
+                        </div>
+                    </div>
+
+                    <div class="campo-duplo">
+                        <div class="campo">
+                            <label for="sexo">Sexo</label>
+                            <select id="sexo" name="sexo">
+                                <option value="">Selecione</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="outro">Outro / Prefiro não informar</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="tipo-sanguineo">Tipo sanguíneo</label>
+                            <select id="tipo-sanguineo" name="tipo-sanguineo">
+                                <option value="">Selecione</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="nao-sei">Não sei</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contato -->
+                <div class="grupo-campos">
+                    <h3>Contato</h3>
+
+                    <div class="campo-duplo">
+                        <div class="campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
+                        </div>
+                        <div class="campo">
+                            <label for="telefone">Telefone / WhatsApp</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(14) 9 9999-9999">
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Informe sua cidade">
+                    </div>
+
+                    <div class="campo">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro">
+                    </div>
+                </div>
+
+                <!-- Acesso ao sistema -->
+                <div class="grupo-campos">
+                    <h3>Dados de acesso</h3>
+
+                    <div class="campo">
+                        <label for="usuario">Nome de usuário</label>
+                        <input type="text" id="usuario" name="usuario" placeholder="Escolha um nome de usuário">
+                    </div>
+
+                    <div class="campo-duplo">
+                        <div class="campo">
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha" name="senha" placeholder="Crie uma senha segura">
+                        </div>
+                        <div class="campo">
+                            <label for="senha-confirmar">Confirmar senha</label>
+                            <input type="password" id="senha-confirmar" name="senha-confirmar" placeholder="Repita a senha">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações adicionais -->
+                <div class="grupo-campos">
+                    <h3>Informações adicionais</h3>
+
+                    <div class="campo">
+                        <label for="frequencia">Frequência de doação desejada</label>
+                        <select id="frequencia" name="frequencia">
+                            <option value="">Selecione</option>
+                            <option value="sempre-que-possivel">Sempre que possível</option>
+                            <option value="a-cada-3-meses">A cada 3 meses</option>
+                            <option value="campanhas-especiais">Somente em campanhas especiais</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="observacoes">Observações (opcional)</label>
+                        <textarea id="observacoes" name="observacoes" rows="3"
+                                  placeholder="Alguma condição de saúde, uso de medicamentos ou observação relevante."></textarea>
+                    </div>
+                </div>
+
+                <!-- Termos -->
+                <div class="campo termo-uso">
+                    <label>
+                        <input type="checkbox" name="aceite-termos">
+                        Declaro que as informações fornecidas são verdadeiras e autorizo o contato do posto por
+                        telefone, e-mail ou WhatsApp para assuntos relacionados à doação de sangue.
+                    </label>
+                </div>
+
+                <button type="submit" class="botao-verificar">
+                    Finalizar cadastro
+                </button>
+
+                <p class="aviso">
+                    Após o cadastro, você poderá acessar sua área de doador utilizando o e-mail ou usuário
+                    informados neste formulário.
+                </p>
+
+            </form>
+        </div>
+
+    </section>
+
+    <!-- BLOCO 3 – DICAS RÁPIDAS -->
+    <section class="cadastro-info-extra">
+        <div class="cadastro-card pequeno">
+            <h3>Proteção de dados</h3>
+            <p>
+                Este sistema acadêmico simula um ambiente real. Em um sistema oficial, seus dados
+                seriam protegidos conforme a LGPD (Lei Geral de Proteção de Dados).
+            </p>
+        </div>
+
+        <div class="cadastro-card pequeno">
+            <h3>Atualização de informações</h3>
+            <p>
+                Sempre que mudar de telefone, e-mail ou endereço, lembre-se de atualizar seus dados
+                para receber avisos de campanhas e confirmações de agendamento.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparação Pré-Doação - DOE Lins</title>
+
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-unificado.css">
+
+    <!-- Fonte do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para aplicar config para grandes telas - 30/11 Dri -->
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile – checkbox hack) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+            <!-- Botão de login abre o modal -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================================================
+     CHECKBOXES DO MODAL (HACK PARA ABRIR/FECHAR VIA CSS)
+     - Devem ficar antes da .modal-login
+     ========================================================= -->
+<input
+        type="checkbox"
+        id="login-modal"
+        class="modal-toggle"
+        aria-hidden="true">
+<input
+        type="checkbox"
+        id="recuperar-modal"
+        class="recuperar-toggle"
+        aria-hidden="true">
+
+<!-- =========================================================
+     MODAL DE LOGIN / RECUPERAR SENHA
+     ========================================================= -->
+<div
+        class="modal-login"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+
+        <!-- BOTÃO FECHAR -->
+        <label
+                for="login-modal"
+                class="fechar-modal"
+                aria-label="Fechar janela de login">
+            &times;
+        </label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input
+                        id="email-login"
+                        type="email"
+                        name="email-login"
+                        placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input
+                        id="senha-login"
+                        type="password"
+                        name="senha-login"
+                        placeholder="Digite sua senha">
+
+                <button class="btn-entrar" type="submit">Entrar</button>
+            </form>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input
+                        id="email-recuperar"
+                        type="email"
+                        name="email-recuperar"
+                        placeholder="email@exemplo.com">
+
+                <button class="btn-entrar" type="submit">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">
+                ← Voltar ao login
+            </label>
+        </section>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     CABEÇALHO ESPECÍFICO DA PÁGINA
+     ========================================================= -->
+<!-- <header class="header-preparacao">
+    <h1>PREPARAÇÃO PRÉ-DOAÇÃO</h1>
+</header> -->
+
+<!-- =========================================================
+     BANNER / INTRODUÇÃO
+     ========================================================= -->
+<section
+        class="banner-blog"
+        aria-label="Como se preparar para doar sangue">
+    <h2>Como se preparar para doar sangue?</h2>
+    <p>Seguir alguns cuidados simples garante uma doação segura e tranquila.</p>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main class="conteudo-blog" id="conteudo-principal">
+
+    <article class="artigo" aria-label="Orientações de preparação para doação">
+
+        <!-- SEÇÃO INTRODUÇÃO -->
+        <h2 class="titulo-artigo">Antes de Doar Sangue</h2>
+        <p>
+            Para garantir tanto a sua segurança quanto a de quem irá receber o sangue,
+            é importante seguir alguns cuidados básicos antes da doação.
+        </p>
+
+        <!-- =================================================
+             CARDS DE PREPARAÇÃO
+             ================================================= -->
+        <section
+                class="cards-preparacao"
+                aria-label="Cuidados recomendados antes da doação">
+
+            <div class="card">
+                <h3>Alimentação</h3>
+                <p>Faça refeições leves e evite alimentos gordurosos nas 3 horas anteriores.</p>
+            </div>
+
+            <div class="card">
+                <h3>Hidratação</h3>
+                <p>Beba bastante água ao longo do dia. Estar hidratado é fundamental.</p>
+            </div>
+
+            <div class="card">
+                <h3>Evite álcool</h3>
+                <p>Não consuma bebidas alcoólicas 12 horas antes da doação.</p>
+            </div>
+
+            <div class="card">
+                <h3>Descanso</h3>
+                <p>Durma bem na noite anterior, pelo menos 6 horas.</p>
+            </div>
+
+        </section>
+
+        <!-- =================================================
+             LISTA DE RECOMENDAÇÕES
+             ================================================= -->
+        <section aria-label="Lista de recomendações importantes">
+            <h2 class="titulo-artigo">Recomendações Importantes</h2>
+            <p>
+                Seguir estas recomendações ajuda na sua triagem e melhora o processo de doação:
+            </p>
+
+            <ul class="lista-recomendacoes">
+                <li>Leve documento original com foto;</li>
+                <li>Use roupas confortáveis e com mangas fáceis de dobrar;</li>
+                <li>Evite exercícios físicos intensos no dia;</li>
+                <li>Não vá em jejum;</li>
+                <li>Informe o profissional sobre qualquer medicamento que esteja usando;</li>
+                <li>Se estiver gripado, adie a doação.</li>
+            </ul>
+        </section>
+
+        <!-- =================================================
+             BOX DE DESTAQUE
+             ================================================= -->
+        <section
+                class="box-destaque"
+                aria-label="Dica importante sobre hidratação">
+            <h3>Sabia?</h3>
+            <p>
+                Beber água 15 a 30 minutos antes da coleta reduz o risco de tonturas
+                e melhora a circulação. Aproveite e hidrate-se bem!
+            </p>
+        </section>
+
+        <!-- =================================================
+             SEÇÃO FINAL
+             ================================================= -->
+        <section aria-label="Mensagem final e chamada para ação">
+            <h2 class="titulo-artigo">Tudo pronto?</h2>
+            <p>
+                Agora que você já sabe como se preparar, é só agendar sua doação.
+                É rápido, simples e faz toda diferença para quem precisa.
+            </p>
+
+            <a href="index.html" class="btn-voltar">Voltar ao Início</a>
+        </section>
+
+    </article>
+
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

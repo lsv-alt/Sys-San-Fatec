@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque de Sangue - DOE Lins</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para não quebrar em grandes telas - 29/11 Dri -->
+<!-- =========================================================
+     HEADER / NAVEGAÇÃO PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile – checkbox hack) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <!-- Botão de login abre o modal via checkbox -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================================================
+     CONTROLES DO MODAL DE LOGIN (CHECKBOX HACK)
+     - Precisam vir antes de .modal-login por causa do CSS
+     ========================================================= -->
+<input type="checkbox" id="login-modal" class="modal-toggle" aria-hidden="true">
+<input type="checkbox" id="recuperar-modal" class="recuperar-toggle" aria-hidden="true">
+
+<!-- =========================================================
+     MODAL DE LOGIN / RECUPERAR SENHA
+     ========================================================= -->
+<div class="modal-login" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+
+        <!-- Botão fechar -->
+        <label
+                for="login-modal"
+                class="fechar-modal"
+                aria-label="Fechar janela de login">
+            &times;
+        </label>
+
+        <!-- ================= LOGIN ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>  
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input
+                        id="email-login"
+                        type="email"
+                        name="email-login"
+                        placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input
+                        id="senha-login"
+                        type="password"
+                        name="senha-login"
+                        placeholder="Digite sua senha">
+            </form>
+            <!-- Link estilizado como botão (evita <a> dentro de <button>) -->
+            <a href="doador.html" class="btn-entrar">Entrar</a>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input
+                        id="email-recuperar"
+                        type="email"
+                        name="email-recuperar"
+                        placeholder="email@exemplo.com">
+
+                <button class="btn-entrar" type="submit">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">
+                ← Voltar ao login
+            </label>
+        </section>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     FAIXA SUPERIOR – RESUMO DO ESTOQUE
+     ========================================================= -->
+<section class="sub-menu" aria-label="Painel resumido de estoque"> 
+    <div class="area-texto-estoque estoque"> <!-- classe extra para organizar melhor o texto, pois tem mais espaço - 29/11 Dri -->
+        <h1>Painel de Estoques</h1>
+        <span>Visão geral das bolsas disponíveis por tipo sanguíneo.</span>
+        <p class="ultima-atualizacao">
+            Última atualização: 18/11/2025 - 10:42
+        </p>
+    </div>
+
+    <div class="area-icones-estoque-home estoque">  <!-- classe extra para organizar melhor os ícones de bolsa, pois são só 4 - 29/11 Dri -->
+        <!-- Resumo rápido dos tipos mais críticos/estáveis -->
+        <div class="icone-estoque critico">
+            <img src="imgs/blood-icon-stock-var1.png" alt="Ícone de bolsa de sangue para tipo O negativo em nível crítico">
+            <p>O-</p>
+            <span>Crítico</span>
+        </div>
+
+        <div class="icone-estoque atencao">
+            <img src="imgs/blood-icon-stock-var1.png" alt="Ícone de bolsa de sangue para tipo A negativo em atenção">
+            <p>A-</p>
+            <span>Atenção</span>
+        </div>
+
+        <div class="icone-estoque estavel">
+            <img src="imgs/blood-icon-stock-var1.png" alt="Ícone de bolsa de sangue para tipo O positivo estável">
+            <p>O+</p>
+            <span>Estável</span>
+        </div>
+
+        <div class="icone-estoque estavel">
+            <img src="imgs/blood-icon-stock-var1.png" alt="Ícone de bolsa de sangue para tipo A positivo estável">
+            <p>A+</p>
+            <span>Estável</span>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main id="conteudo-principal">
+
+    <!-- -----------------------------------------------------
+         BLOCO 1 – Cards de estoque por tipo sanguíneo
+         ----------------------------------------------------- -->
+    <section class="painel-estoque" aria-label="Estoque por tipo sanguíneo">
+        <h2 class="titulo-secao">Estoque por tipo sanguíneo</h2>
+        <hr class="linha-divisoria">
+
+        <div class="grid-estoque-tipos">
+
+            <!-- O+ -->
+            <article class="card-estoque estavel" aria-label="Estoque do tipo O positivo">
+                <h3>O+</h3>
+                <p class="qtd-bolsas">32 bolsas disponíveis</p>
+                <p class="status">Status: Estável</p>
+                <p class="prioridade">Prioridade: Normal</p>
+            </article>
+
+            <!-- O- -->
+            <article class="card-estoque critico" aria-label="Estoque do tipo O negativo">
+                <h3>O-</h3>
+                <p class="qtd-bolsas">7 bolsas disponíveis</p>
+                <p class="status">Status: Crítico</p>
+                <p class="prioridade">Prioridade: Doadores frequentes e novos doadores</p>
+            </article>
+
+            <!-- A+ -->
+            <article class="card-estoque estavel" aria-label="Estoque do tipo A positivo">
+                <h3>A+</h3>
+                <p class="qtd-bolsas">25 bolsas disponíveis</p>
+                <p class="status">Status: Estável</p>
+                <p class="prioridade">Prioridade: Normal</p>
+            </article>
+
+            <!-- A- -->
+            <article class="card-estoque atencao" aria-label="Estoque do tipo A negativo">
+                <h3>A-</h3>
+                <p class="qtd-bolsas">11 bolsas disponíveis</p>
+                <p class="status">Status: Atenção</p>
+                <p class="prioridade">Prioridade: Incentivo à doação</p>
+            </article>
+
+            <!-- B+ -->
+            <article class="card-estoque estavel" aria-label="Estoque do tipo B positivo">
+                <h3>B+</h3>
+                <p class="qtd-bolsas">18 bolsas disponíveis</p>
+                <p class="status">Status: Estável</p>
+                <p class="prioridade">Prioridade: Normal</p>
+            </article>
+
+            <!-- B- -->
+            <article class="card-estoque atencao" aria-label="Estoque do tipo B negativo">
+                <h3>B-</h3>
+                <p class="qtd-bolsas">9 bolsas disponíveis</p>
+                <p class="status">Status: Atenção</p>
+                <p class="prioridade">Prioridade: Captação ativa</p>
+            </article>
+
+            <!-- AB+ -->
+            <article class="card-estoque estavel" aria-label="Estoque do tipo AB positivo">
+                <h3>AB+</h3>
+                <p class="qtd-bolsas">14 bolsas disponíveis</p>
+                <p class="status">Status: Estável</p>
+                <p class="prioridade">Prioridade: Normal</p>
+            </article>
+
+            <!-- AB- -->
+            <article class="card-estoque critico" aria-label="Estoque do tipo AB negativo">
+                <h3>AB-</h3>
+                <p class="qtd-bolsas">4 bolsas disponíveis</p>
+                <p class="status">Status: Crítico</p>
+                <p class="prioridade">Prioridade: Doador raro</p>
+            </article>
+
+        </div>
+
+        <!-- Legenda de status -->
+        <div class="legenda-estoque" aria-label="Legenda de status do estoque">
+            <span class="legenda-item estavel">Estável</span>
+            <span class="legenda-item atencao">Atenção</span>
+            <span class="legenda-item critico">Crítico</span>
+        </div>
+    </section>
+
+    <!-- -----------------------------------------------------
+         BLOCO 2 – Tabela detalhada de bolsas
+         ----------------------------------------------------- -->
+    <section class="tabela-estoque-wrapper" aria-label="Tabela detalhada de bolsas">
+        <h2 class="titulo-secao">Tabela detalhada de bolsas</h2>
+        <hr class="linha-divisoria">
+
+        <div class="tabela-scroll">
+            <table class="tabela-estoque" aria-label="Tabela com detalhes de estoque de bolsas por tipo sanguíneo">
+                <thead>
+                <tr>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Bolsas disponíveis</th>
+                    <th scope="col">Consumo médio diário</th>
+                    <th scope="col">Previsão de duração</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="estavel">
+                    <td>O+</td>
+                    <td>32</td>
+                    <td>6</td>
+                    <td>~ 5 dias</td>
+                    <td>Estável</td>
+                </tr>
+                <tr class="critico">
+                    <td>O-</td>
+                    <td>7</td>
+                    <td>4</td>
+                    <td>&lt; 2 dias</td>
+                    <td>Crítico</td>
+                </tr>
+                <tr class="estavel">
+                    <td>A+</td>
+                    <td>25</td>
+                    <td>5</td>
+                    <td>~ 4 dias</td>
+                    <td>Estável</td>
+                </tr>
+                <tr class="atencao">
+                    <td>A-</td>
+                    <td>11</td>
+                    <td>3</td>
+                    <td>~ 3 dias</td>
+                    <td>Atenção</td>
+                </tr>
+                <tr class="estavel">
+                    <td>B+</td>
+                    <td>18</td>
+                    <td>2</td>
+                    <td>~ 7 dias</td>
+                    <td>Estável</td>
+                </tr>
+                <tr class="atencao">
+                    <td>B-</td>
+                    <td>9</td>
+                    <td>2</td>
+                    <td>~ 4 dias</td>
+                    <td>Atenção</td>
+                </tr>
+                <tr class="estavel">
+                    <td>AB+</td>
+                    <td>14</td>
+                    <td>1</td>
+                    <td>~ 10 dias</td>
+                    <td>Estável</td>
+                </tr>
+                <tr class="critico">
+                    <td>AB-</td>
+                    <td>4</td>
+                    <td>1</td>
+                    <td>&lt; 4 dias</td>
+                    <td>Crítico</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="aviso-tabela">
+            Os dados acima são fictícios e servem apenas para ilustração do sistema acadêmico.
+        </p>
+    </section>
+
+    <!-- -----------------------------------------------------
+         BLOCO 3 – Alertas e informações adicionais
+         ----------------------------------------------------- -->
+    <section class="alertas-estoque-wrapper" aria-label="Alertas e informações adicionais sobre estoque">
+        <article class="alertas-estoque">
+            <h2>Alertas do dia</h2>
+            <ul>
+                <li><strong>O-</strong> em nível crítico: priorizar agendamentos deste tipo sanguíneo.</li>
+                <li><strong>AB-</strong> com baixa reserva: contatar doadores cadastrados.</li>
+                <li>Campanha interna ativa para aumentar estoque de tipos <strong>A-</strong> e <strong>B-</strong>.</li>
+            </ul>
+        </article>
+
+        <article class="info-estoque-extra">
+            <h2>Informações importantes</h2>
+            <ul>
+                <li>Os estoques consideram apenas bolsas aptas para transfusão.</li>
+                <li>Períodos de maior demanda: segundas-feiras e pós-feriados prolongados.</li>
+                <li>As metas são definidas com base no histórico de consumo do município.</li>
+                <li>Doadores frequentes ajudam a manter o estoque em níveis estáveis ao longo do ano.</li>
+            </ul>
+        </article>
+    </section>
+
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

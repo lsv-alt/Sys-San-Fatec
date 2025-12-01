@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critérios para Doar Sangue - DOE Lins</title>
+
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-unificado.css">
+
+    <!-- Fonte usada no projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!-- container para aplicar config para grandes telas - 28/11 Dri -->
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hambúrguer (menu mobile – checkbox hack) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <!-- Botão de login (abre modal via checkbox) -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================================================
+     CONTROLES DO MODAL (CHECKBOX HACK)
+     - Precisam vir antes de .modal-login por causa do CSS
+     ========================================================= -->
+<input type="checkbox" id="login-modal" class="modal-toggle" aria-hidden="true">
+<input type="checkbox" id="recuperar-modal" class="recuperar-toggle" aria-hidden="true">
+
+<!-- =========================================================
+     MODAL DE LOGIN / RECUPERAR SENHA
+     ========================================================= -->
+<div class="modal-login" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+
+        <!-- Botão fechar -->
+        <label
+                for="login-modal"
+                class="fechar-modal"
+                aria-label="Fechar janela de login">
+            &times;
+        </label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input
+                        id="email-login"
+                        type="email"
+                        name="email-login"
+                        placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input
+                        id="senha-login"
+                        type="password"
+                        name="senha-login"
+                        placeholder="Digite sua senha">
+
+                <button type="submit" class="btn-entrar">Entrar</button>
+            </form>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input
+                        id="email-recuperar"
+                        type="email"
+                        name="email-recuperar"
+                        placeholder="email@exemplo.com">
+
+                <button type="submit" class="btn-entrar">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">← Voltar ao login</label>
+        </section>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     CABEÇALHO ESPECÍFICO DA PÁGINA
+     ========================================================= -->
+<!-- <header class="header-criterios">
+    <h1>CRITÉRIOS PARA DOAR SANGUE</h1>
+</header> -->
+
+<!-- =========================================================
+     BANNER / INTRODUÇÃO DO CONTEÚDO TIPO BLOG
+     ========================================================= -->
+<section class="banner-blog" aria-label="Introdução aos critérios de doação de sangue">
+    <h2>Entenda quem pode e quem não pode doar sangue</h2>
+    <p>Informações oficiais baseadas nas normas do Ministério da Saúde</p>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main class="conteudo-blog" id="conteudo-principal">
+
+    <!-- Artigo principal da página -->
+    <article class="artigo">
+        <!-- Seção: Requisitos básicos -->
+        <h2 class="titulo-artigo">Requisitos Básicos para Doação</h2>
+        <p>
+            Existem critérios fundamentais que todo doador precisa atender
+            antes de realizar sua doação de sangue. Estes requisitos garantem
+            a segurança do doador e também de quem irá receber o sangue.
+        </p>
+
+        <!-- Cards de critérios principais -->
+        <div class="cards-criterios">
+
+            <section class="card" aria-label="Critério de idade para doação de sangue">
+                <h3>Idade</h3>
+                <p>
+                    - Entre 16 e 69 anos<br>
+                    - Menores precisam de autorização
+                </p>
+            </section>
+
+            <section class="card" aria-label="Critério de peso mínimo para doação de sangue">
+                <h3>Peso Mínimo</h3>
+                <p>- Obrigatório pesar mais de 50 kg</p>
+            </section>
+
+            <section class="card" aria-label="Condição de saúde para doação de sangue">
+                <h3>Saúde</h3>
+                <p>
+                    - Estar em boas condições de saúde<br>
+                    - Sem febre, gripe ou infecções
+                </p>
+            </section>
+
+            <section class="card" aria-label="Documentação necessária para doação de sangue">
+                <h3>Documentação</h3>
+                <p>- Documento oficial com foto</p>
+            </section>
+
+        </div>
+
+        <!-- Seção: Situações que impedem a doação -->
+        <h2 class="titulo-artigo">Situações que Impedem a Doação</h2>
+        <p>
+            Algumas situações podem impedir temporária ou definitivamente
+            a doação. Confira abaixo os casos mais comuns:
+        </p>
+
+        <ul class="lista-impedimentos">
+            <li>Febre, gripe ou resfriado nos últimos 7 dias</li>
+            <li>Tatuagem ou piercing feitos em menos de 12 meses</li>
+            <li>Cirurgias recentes</li>
+            <li>Consumo de álcool nas últimas 12 horas</li>
+            <li>Gestantes ou mulheres que estão amamentando</li>
+            <li>Exames endoscópicos recentes (6 meses)</li>
+        </ul>
+
+        <!-- Box de destaque explicativo -->
+        <aside class="box-destaque" aria-label="Aviso importante sobre avaliação individual">
+            <h3>Importante!</h3>
+            <p>
+                Cada caso é avaliado individualmente durante a triagem.
+                Mesmo que você tenha dúvidas, vá até o posto de doação
+                para ser avaliado por um profissional.
+            </p>
+        </aside>
+
+        <!-- Seção: Chamada para ação -->
+        <h2 class="titulo-artigo">Quer saber se você pode doar?</h2>
+        <p>
+            Utilize nosso questionário simples para verificar seu
+            estado atual de forma rápida e prática.
+        </p>
+
+        <a href="index.html" class="btn-voltar">Voltar para o Início</a>
+    </article>
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

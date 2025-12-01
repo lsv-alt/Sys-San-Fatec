@@ -1,0 +1,338 @@
+/* ============================================================
+   BLOG – LAYOUT GERAL E CONTAINERS 
+   30/11 Dri 
+   ============================================================ */
+
+/* 1. Containers Principais */
+.conteudo-blog,
+.conteudo-blog-mitos,
+.conteudo-blog-duvidas {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* 2. Blocos de Artigo */
+.artigo,
+.artigo-blog,
+.artigo-mitos,
+.artigo-duvidas {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. Títulos Internos (H2) - Reduzidos */
+.titulo-artigo,
+.titulo-artigo-blog,
+.titulo-artigo-mitos,
+.titulo-artigo-duvidas {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #b32634;
+    
+    /* DEFINIÇÃO BASE (DESKTOP): Reduzido de 3.2rem para 2.2rem */
+    font-size: 2.2rem; /* Tamanho mais contido e proporcional - 30/11 Dri */
+    
+    border-bottom: 1px solid #f08080;
+    display: inline-block;
+}
+
+/* Parágrafos gerais dos artigos */
+.artigo p,
+.artigo-blog p,
+.artigo-mitos p,
+.artigo-duvidas p {
+    font-size: 1.5rem; /* Levemente menor que o padrão 1.6rem para não ficar grosseiro - 30/11 Dri */
+    line-height: 1.5;
+}
+
+/* AJUSTE DE LISTAS (MARGEM + PADDING)
+   30/11 Dri */
+
+.artigo ul,
+.artigo-blog ul,
+.artigo-mitos ul,
+.artigo-duvidas ul,
+.box-destaque ul {
+    margin: 15px; 
+    padding-left: 20px; 
+}
+
+/* Espaçamento entre os itens da lista para não ficar tudo encavalado - 30/11 Dri*/
+.artigo li,
+.artigo-blog li,
+.artigo-mitos li,
+.artigo-duvidas li,
+.box-destaque li {
+    margin-bottom: 8px;
+}
+
+/* ============================================================
+   BANNERS / HERO DAS PÁGINAS (SUBMENU)
+   ============================================================ */
+
+.banner-blog,
+.banner-mitos,
+.banner-pos,
+.banner-duvidas {
+    background: pink;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #333;
+    margin: 5px;
+    border-radius: 2px;
+}
+
+.banner-blog h2,
+.banner-mitos h2,
+.banner-pos h2,
+.banner-duvidas h2 {
+    /* DEFINIÇÃO BASE (DESKTOP): Reduzido de 3.2rem para 2.8rem */
+    font-size: 2.8rem; /* Grande, mas não gigante - 30/11 Dri */
+    margin-bottom: 0;
+    color: #1d1e20;
+}
+
+.banner-blog p,
+.banner-mitos p,
+.banner-pos p,
+.banner-duvidas p {
+    color: #1d1e20;
+    font-size: 1.5rem; /* Reduzido levemente - 30/11 Dri */
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* ============================================================
+   CARDS E GRID SYSTEM
+   ============================================================ */
+
+/* 1. Agrupadores */
+.cards-criterios,
+.cards-preparacao,
+.cards-cuidado,
+.faq-container,
+.lista-mitos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Gap um pouco menor para compactar */
+    margin: 20px 0;
+    justify-content: center;
+}
+
+/* 2. Estilo Base dos Cards */
+.card,
+.card-pos,
+.faq-card,
+.mito-card {
+    flex: 1 1 200px; /* Base reduzida para 200px */
+    padding: 15px; /* Menos estofamento */
+    background: #f7e4e6;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 3. Títulos dos Cards (H3) */
+.card h3,
+.card-pos h3,
+.faq-card h3,
+.mito-card h3 {
+    margin-bottom: 8px;
+    color: #b32634;
+    font-size: 1.6rem; /* Reduzido de 1.8rem para 1.6rem - 30/11 Dri */
+}
+
+/* 4. Texto dos Cards (P) */
+.card p, 
+.card-pos p,
+.faq-card p,
+.mito-card p {
+    font-size: 1.4rem; /* Reduzido para ficar delicado dentro do card - 30/11 Dri */
+    line-height: 1.4;
+}
+
+/* ============================================================
+   ELEMENTOS ESPECÍFICOS (BOXES E ETIQUETAS)
+   ============================================================ */
+
+/* Box de Destaque */
+.box-destaque,
+.box-alerta-pos {
+    flex: 1 1 350px;
+    margin: 0;
+    padding: 20px;
+    background: #ffebee;
+    border-radius: 5px;
+    border: 1px solid #ffcdd2;
+}
+
+.box-destaque h3,
+.box-alerta-pos h3 {
+    margin-bottom: 12px;
+    color: #8b0000;
+    font-size: 1.6rem; /* Reduzido */
+    text-align: center;
+}
+
+.box-destaque ul {
+    padding-left: 20px;
+    font-size: 1.5rem; /* Reduzido */
+}
+
+.box-destaque li {
+    margin-bottom: 6px;
+}
+
+/* Mitos Específico */
+.mito-card {
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mito-card p {
+    color: #666;
+    text-align: left;
+}
+
+/* Etiquetas */
+.veredito {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.veredito.verdadeiro { background: #2e7d32; }
+.veredito.falso { background: #c62828; }
+
+/* ============================================================
+   RESPONSIVIDADE (MOBILE DOWN - PROPORCIONAL)
+   ============================================================ */
+
+/* 1. Notebooks e Tablets (≤ 1200px) */
+@media (max-width: 1200px) {
+    
+    .titulo-artigo,
+    .titulo-artigo-blog,
+    .titulo-artigo-mitos,
+    .titulo-artigo-duvidas {
+        font-size: 2.0rem; /* Título interno menor */
+    }
+    
+    .banner-blog h2,
+    .banner-mitos h2,
+    .banner-pos h2,
+    .banner-duvidas h2 {
+        font-size: 2.4rem; /* Banner um pouco menor que Desktop */
+    }
+}
+
+/* 2. Tablets Pequenos e Celulares Grandes (≤ 768px) */
+@media (max-width: 768px) {
+    .conteudo-blog,
+    .conteudo-blog-mitos,
+    .conteudo-blog-duvidas {
+        width: 100%;
+    }
+    
+        /* Banner Rosa */
+    .banner-blog h2,
+    .banner-mitos h2,
+    .banner-pos h2,
+    .banner-duvidas h2 {
+        font-size: 2.0rem; /* Bem equilibrado com o restante - 30/11 Dri */
+        margin-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .banner-blog p,
+    .banner-mitos p,
+    .banner-pos p,
+    .banner-duvidas p {
+        font-size: 1.3rem; /* Texto auxiliar discreto */
+    }
+    
+    /* Títulos Internos */
+    .titulo-artigo,
+    .titulo-artigo-blog,
+    .titulo-artigo-mitos,
+    .titulo-artigo-duvidas {
+        font-size: 1.8rem; /* Menor que o banner (2.0 > 1.8) */
+        display: block;
+        text-align: center;
+    }
+    
+    .box-destaque,
+    .box-alerta-pos {
+        text-align: left;
+    }
+}
+
+/* 3. Celulares Pequenos (≤ 576px) */
+@media (max-width: 576px) {
+    
+    .banner-blog,
+    .banner-mitos,
+    .banner-pos,
+    .banner-duvidas{
+        margin: 0;
+    }
+
+    /* Redução Final */
+    .banner-blog h2,
+    .banner-mitos h2,
+    .banner-pos h2,
+    .banner-duvidas h2 {
+        font-size: 1.8rem; /* Tamanho confortável para celular - 30/11 Dri */
+    }
+
+    .banner-blog p,
+    .banner-mitos p,
+    .banner-pos p,
+    .banner-duvidas p {
+        font-size: 1.2rem;
+    }
+
+    /* Títulos Internos */
+    .titulo-artigo,
+    .titulo-artigo-blog,
+    .titulo-artigo-mitos,
+    .titulo-artigo-duvidas {
+        font-size: 1.6rem;
+    }
+
+    /* Texto Geral */
+    .artigo p,
+    .artigo-blog p,
+    .artigo-mitos p,
+    .artigo-duvidas p {
+        font-size: 1.4rem; /* Texto de leitura padrão mobile (14px) - 30/11 Dri */
+    }
+
+    /* Cards */
+    .card h3,
+    .card-pos h3,
+    .faq-card h3,
+    .mito-card h3,
+    .box-destaque h3 {
+        font-size: 1.5rem;
+    }
+
+    .card p, 
+    .card-pos p,
+    .faq-card p,
+    .mito-card p,
+    .box-destaque ul {
+        font-size: 1.3rem;
+    }
+}

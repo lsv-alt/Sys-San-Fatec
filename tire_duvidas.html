@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tire suas dúvidas - DOE Lins</title>
+
+    <!-- CSS base do projeto -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-unificado.css">
+
+    <!-- Fonte do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+</head>
+<body>
+
+<div class="container-geral"> <!--container para aplicar config para grandes telas - 28/11 Dri -->
+
+<!-- =========================================================
+     HEADER / MENU PRINCIPAL
+     ========================================================= -->
+<header class="header">
+    <a href="index.html" class="logo">DOE Lins</a>
+
+    <!-- Botão hamburguer (menu mobile – checkbox hack) -->
+    <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-label="Abrir ou fechar o menu principal">
+    <label for="menu-toggle" class="hamburguer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="agendar.html">Agendar Doação</a></li>
+            <li><a href="estoque.html">Estoque</a></li>
+            <li><a href="informacoes.html">Informações</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+            <!-- Botão de login (abre modal via checkbox) -->
+            <li>
+                <label for="login-modal" class="login-btn">Login</label>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================================================
+     CHECKBOXES DO MODAL (HACK PARA ABRIR/FECHAR VIA CSS)
+     - Precisam vir antes do .modal-login para o CSS funcionar
+     ========================================================= -->
+<input
+        type="checkbox"
+        id="login-modal"
+        class="modal-toggle"
+        aria-hidden="true">
+<input
+        type="checkbox"
+        id="recuperar-modal"
+        class="recuperar-toggle"
+        aria-hidden="true">
+
+<!-- =========================================================
+     MODAL DE LOGIN / RECUPERAR SENHA
+     ========================================================= -->
+<div
+        class="modal-login"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal-login">
+    <div class="modal-content">
+
+        <!-- BOTÃO FECHAR -->
+        <label
+                for="login-modal"
+                class="fechar-modal"
+                aria-label="Fechar janela de login">
+            &times;
+        </label>
+
+        <!-- ================= LOGIN NORMAL ================== -->
+        <section class="tela-login" aria-label="Área de login">
+            <h2 id="titulo-modal-login">Login</h2>
+
+            <form>
+                <label for="tipo-login">Tipo de Acesso:</label>
+                <select id="tipo-login" name="tipo-login" class="select-login">
+                    <option value="doador">🩸 Doador</option>
+                    <option value="recepcionista">🧑‍💼 Recepcionista</option>
+                    <option value="enfermeiro">👩‍⚕️ Enfermeiro</option>
+                    <option value="admin">🔐 Administrador</option>
+                </select>
+
+                <label for="email-login">E-mail:</label>
+                <input
+                        id="email-login"
+                        type="email"
+                        name="email-login"
+                        placeholder="Digite seu e-mail">
+
+                <label for="senha-login">Senha:</label>
+                <input
+                        id="senha-login"
+                        type="password"
+                        name="senha-login"
+                        placeholder="Digite sua senha">
+
+                <button class="btn-entrar" type="submit">Entrar</button>
+            </form>
+
+            <div class="acoes-extra">
+                <label for="recuperar-modal" class="esqueceu">Esqueci minha senha</label>
+                <a href="cadastro.html" class="cadastro">Fazer cadastro</a>
+            </div>
+        </section>
+
+        <!-- ================= RECUPERAR SENHA ================= -->
+        <section class="tela-recuperar" aria-label="Recuperar senha">
+            <h2>Recuperar Senha</h2>
+
+            <form>
+                <label for="email-recuperar">Digite seu e-mail:</label>
+                <input
+                        id="email-recuperar"
+                        type="email"
+                        name="email-recuperar"
+                        placeholder="email@exemplo.com">
+
+                <button class="btn-entrar" type="submit">Enviar código</button>
+            </form>
+
+            <label for="recuperar-modal" class="voltar-login">
+                ← Voltar ao login
+            </label>
+        </section>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     CABEÇALHO ESPECÍFICO DA PÁGINA
+     ========================================================= -->
+<!-- <header class="header-duvidas">
+    <h1>TIRE SUAS DÚVIDAS</h1>
+</header> -->
+
+<!-- =========================================================
+     BANNER / INTRODUÇÃO DA PÁGINA
+     ========================================================= -->
+<section
+        class="banner-duvidas"
+        aria-label="Introdução às perguntas frequentes sobre doação de sangue">
+    <h2>Dúvidas frequentes sobre a doação de sangue</h2>
+    <p>Encontre respostas rápidas para as dúvidas mais comuns.</p>
+</section>
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+     ========================================================= -->
+<main class="conteudo-blog-duvidas" id="conteudo-principal">
+
+    <article class="artigo-duvidas" aria-label="Perguntas frequentes sobre doação">
+
+        <h2 class="titulo-artigo-duvidas">Dúvidas Comuns</h2>
+        <p>
+            Antes de doar sangue, é comum ter questionamentos sobre segurança,
+            saúde e os procedimentos envolvidos. Aqui estão as respostas
+            das dúvidas mais comuns:
+        </p>
+
+        <!-- CONTAINER DAS PERGUNTAS -->
+        <div class="faq-container">
+
+            <section class="faq-card" aria-label="Doar sangue é seguro?">
+                <h3>Doar sangue é seguro?</h3>
+                <p>
+                    Sim. Todo material utilizado é estéril, lacrado e descartado após o uso.
+                    Não existe risco de contrair doenças durante a doação.
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Tempo necessário para doar sangue">
+                <h3>Quanto tempo demora para doar?</h3>
+                <p>
+                    A coleta leva de 8 a 12 minutos. Porém, a permanência total no posto
+                    costuma durar cerca de 40 minutos devido à triagem e hidratação.
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Doação com gripe ou resfriado">
+                <h3>Posso doar com gripe ou resfriado?</h3>
+                <p>
+                    Não. É necessário aguardar estar completamente bem para doar.
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Quantidade de doações por ano">
+                <h3>Quantas vezes posso doar por ano?</h3>
+                <p>
+                    • Homens: até 4 vezes ao ano<br>
+                    • Mulheres: até 3 vezes ao ano<br>
+                    O intervalo mínimo é de 60 dias (homens) e 90 dias (mulheres).
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Pressão alta e doação de sangue">
+                <h3>Quem tem pressão alta pode doar?</h3>
+                <p>
+                    Sim, desde que esteja dentro dos limites seguros durante a triagem.
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Jejum e doação de sangue">
+                <h3>É preciso estar em jejum?</h3>
+                <p>
+                    Não. Pelo contrário: é recomendado que a pessoa esteja alimentada
+                    e hidratada antes da doação.
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Fumante pode doar sangue?">
+                <h3>Fumo, posso doar?</h3>
+                <p>
+                    Sim, mas evite fumar pelo menos 2 horas após a doação.
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Diabetes e doação de sangue">
+                <h3>Tenho diabetes, posso doar?</h3>
+                <p>
+                    Pessoas com diabetes podem doar se estiverem em bom controle clínico
+                    e não fizerem uso de insulina.
+                </p>
+            </section>
+
+            <section class="faq-card" aria-label="Uso de medicamentos e doação">
+                <h3>Posso doar sangue tomando medicamentos?</h3>
+                <p>
+                    Depende do medicamento. Na triagem, informe todos os remédios e
+                    o profissional orientará se é permitido doar.
+                </p>
+            </section>
+
+        </div>
+
+        <a href="index.html" class="btn-voltar-duvidas">Voltar ao Início</a>
+    </article>
+
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+    <footer class="rodape">
+        <div class="info-posto">
+            <strong>POSTO DE SAÚDE “X”</strong><br>
+            Endereço: Rua 9de Julho, 745 - Centro, Lins - SP, 16400-110<br>
+            Segunda a Sexta, das 08:00 às 18:00 horas.<br>
+            CNPJ: 44.531.788/0001-38
+        </div>
+
+        <div class="info-sistema">
+            <strong>Versão do Sistema:</strong> 1.0 - 01/12/2025<br>
+            <strong>Portal atualizado em:</strong> 01/12/2025 18:00h
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
